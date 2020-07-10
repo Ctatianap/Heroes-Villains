@@ -9,7 +9,7 @@ let getSuperHeroes = ({ page, pageSize }) => {
       .get("https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json")
       .then((resultado) => {
         saveInfo("superHeroes", resultado.data);
-        return resultado.data;
+        return resultado.data.slice((page - 1) * pageSize, page * pageSize);
       });
   }
   return Promise.resolve(
