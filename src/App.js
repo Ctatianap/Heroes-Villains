@@ -7,6 +7,7 @@ import "./scss/main.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SuperHeroesService from "./SuperHeroesService";
 import Pagination from "./components/Pagination";
+import Footer from "./components/Footer";
 
 function App() {
   const [heroes, setHeroes] = useState([]);
@@ -24,7 +25,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <Router>
         <Switch>
           <Route path="/infoHero/:slug">
@@ -36,6 +36,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }
