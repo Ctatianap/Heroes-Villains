@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import ContainerHeroes from "./components/ContainerHeroes";
+import InfoHero from "./pages/InfoHero";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./scss/main.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SuperHeroesService from "./SuperHeroesService";
+import Pagination from "./components/Pagination";
 
 function App() {
+  const [heroes, setHeroes] = useState([]);
+  const [pageActual, setPageActual] = useState(1);
+
+  useEffect(() => {
+    SuperHeroesService.getSuperHeroes({
+      page: pageActual,
+      pageSize: 9,
+    }).then((data) => {
+      setHeroes(data);
+    });
+  }, [setHeroes, pageActual]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <Router>
+        <Switch>
+          <Route path="/infoHero/:slug">
+            <InfoHero heroes={heroes} />
+          </Route>
+          <Route path="/">
+            <ContainerHeroes heroes={heroes} />
+            <Pagination page={pageActual} setPage={setPageActual} />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,51 @@
+//core
+@import "core/variables";
+
+//components
+@import "components/card-hero";
+@import "components/info-hero";
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.header {
+  width: 100vw;
+  margin-bottom: 3%;
+  img {
+    width: 100%;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.info-p::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.info-p::-webkit-scrollbar:vertical {
+  width: 7px;
+}
+
+.info-p::-webkit-scrollbar-button:increment,
+.info-p::-webkit-scrollbar-button {
+  display: none;
+}
+
+.info-p::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.info-p::-webkit-scrollbar-thumb {
+  background-color: #fc3f26;
+  border-radius: 20px;
+}
+
+.info-p::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

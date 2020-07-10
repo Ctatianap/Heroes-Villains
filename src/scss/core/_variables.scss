@@ -1,0 +1,16 @@
+@font-face {
+  font-family: badaboomComic;
+  src: url(../../assets/Badaboom.TTF);
+}
+@font-face {
+  font-family: funComic;
+  src: url(../../assets/FunSized.ttf);
+}
+@font-face {
+  font-family: adventure;
+  src: url(../../assets/Adventure.otf);
+}
+
+$font-comic: "badaboomComic";
+$font-funny: "funComic";
+$font-body: "adventure";
