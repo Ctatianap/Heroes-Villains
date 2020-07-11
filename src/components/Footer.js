@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <footer>
         <hr />
-        Copyright ©2020 | Elaboración de Tatiana Pabón |
+        Copyright ©2020 |Made by: Tatiana Pabón |
       </footer>
     </>
   );
